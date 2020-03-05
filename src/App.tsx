@@ -1,11 +1,38 @@
 import React from "react";
+import styled from "styled-components";
 
-function App() {
+import ControlPointsGraph, {
+  GraphControlPointMode
+} from "./components/ControlPointsGraph/ControlPointsGraph";
+
+function App({ className }: { className?: string }) {
   return (
-    <div className="App">
-      <h1>hello</h1>
+    <div className={className}>
+      <h3> Контрольные точки</h3>
+      <ControlPointsGraph
+        points={[
+          { mode: GraphControlPointMode.normal, value: 40 },
+          { mode: GraphControlPointMode.unreached, value: 130 },
+          { mode: GraphControlPointMode.warn, value: 80 },
+          { mode: GraphControlPointMode.warn, value: 70 },
+          {
+            mode: GraphControlPointMode.normal,
+            value: 10
+          },
+          { mode: GraphControlPointMode.normal, value: 20 }
+        ]}
+        value={90}
+      />
     </div>
   );
 }
 
-export default App;
+export default styled(App)`
+  display: flex;
+  h3 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  flex-direction: column;
+  padding: 20px;
+`;

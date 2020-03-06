@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import ControlPointsGraph, {
-  GraphControlPointMode
-} from "./components/ControlPointsGraph/ControlPointsGraph";
+import ControlPointsGraph from "./components/ControlPointsGraph/ControlPointsGraph";
+
+import { GraphControlPointMode } from "./Enums";
 
 function App({ className }: { className?: string }) {
   return (
@@ -19,7 +19,8 @@ function App({ className }: { className?: string }) {
             mode: GraphControlPointMode.normal,
             value: 10
           },
-          { mode: GraphControlPointMode.normal, value: 20 }
+          { mode: GraphControlPointMode.normal, value: 20 },
+          { mode: GraphControlPointMode.normal, value: 200 }
         ]}
         value={90}
       />
